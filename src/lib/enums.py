@@ -5,7 +5,6 @@ class HashsEnum(StrEnum):
     """
     Hashes the system accepts for converting the file.
     """
-    
     SHA1 = 'sha1'
     SHA256 = 'sha256'
     SHA512 = 'sha512'
@@ -16,12 +15,10 @@ class HashsEnum(StrEnum):
     MD5 = 'md5'
 
 
-
 class FlagsEnum(StrEnum):
     """
     We declare here all the option flags that can be passed to the script.
     """
-
     HELP = '--help'
 
 
@@ -29,7 +26,6 @@ class ValuesEnum(StrEnum):
     """
     The value options that can be passed to the script are declared here.
     """
-
     FILE = '--file'
     HASH = '--hash'
     CHUNK_SIZE = '--chunk_size'
@@ -39,7 +35,6 @@ class ExitCodesEnum(IntEnum):
     """
     All the script termination codes are here.
     """
-
     SUCCESS = 0
     GENERIC_ERROR = 1
     INVALID_ARGUMENT = 2
