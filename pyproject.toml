@@ -1,0 +1,15 @@
+[project]
+name = "hashforge"
+version = "1.0.0"
+description = "Ferramenta CLI para calcular hashes de arquivos usando múltiplos algoritmos criptográficos e leitura em blocos."
+readme = "README.md"
+authors = [
+    { name = "João Victor Sanches", email = "joaovictorsanchesandradeestuda@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.22.3",
+]
