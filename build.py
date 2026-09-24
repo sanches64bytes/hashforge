@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 try:
     from PyInstaller.__main__ import run
 except ModuleNotFoundError:
@@ -8,6 +9,7 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 
+ROOT_DIR = Path(__file__).resolve().parent
 NAME_SCRIPT = "hashforge"
 ICON_PATH = "assets/icon.ico"
 SCRIPT_MAIN="src/__main__.py"
@@ -18,7 +20,8 @@ def main():
         f"--name={NAME_SCRIPT}",
         "--onefile",
         "--clean",
-        f"--icon={ICON_PATH}"
+        f"--icon={ICON_PATH}",
+        f"--add-data={ROOT_DIR/'src'/'lib'/'assets'};lib/assets"
     ]
 
     run(options)

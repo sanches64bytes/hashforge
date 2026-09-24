@@ -5,7 +5,7 @@ a = Analysis(
     ['src/__main__.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('C:/Users/Sanches/Desktop/Arara/Sources/file_hash/src/lib/assets', 'lib/assets')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

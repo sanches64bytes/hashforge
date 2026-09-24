@@ -1,4 +1,4 @@
-import sys, signal, types
+import sys, signal, types, ctypes, os
 from lib.errors import ScriptError, ProvidedFileDoesNotExist
 from lib.texts import HELP_DOCUMENT, CALCULATED_FILE_HASH, WARNING_MESSAGE_SIGNAL_CLOSING_SIGNAL, SYMBOL_ASCII
 from lib.args import read_args, ArgsDict
@@ -18,6 +18,19 @@ def handle_shutdown(signum: int, frame: types.FrameType):
     sys.stdout.write(WARNING_MESSAGE_SIGNAL_CLOSING_SIGNAL % signum)
     sys.exit(ExitCodesEnum.CLOSING_SIGNAL)
     
+
+def enable_ansi_colors() -> None:
+    """
+    Enables terminal cores in Windows
+    """
+    if os.name != "nt":
+        return
+    kernel32 = ctypes.windll.kernel32
+    handle = kernel32.GetStdHandle(-11)
+    mode = ctypes.c_uint32()
+    if kernel32.GetConsoleMode(handle, ctypes.byref(mode)):
+        kernel32.SetConsoleMode(handle, mode.value | 0x0004)
+
 
 def show_symbol_ascii():
     """
@@ -66,6 +79,7 @@ def main():
     This function starts the script and all the processes.
     """
     try:
+        enable_ansi_colors()
         args = read_args()
         show_help_documentation(args)
         read_file_and_calculate_hash(args)

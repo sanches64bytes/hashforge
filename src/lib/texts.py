@@ -32,9 +32,9 @@ def apply_colors(value: str) -> str:
     return value + COLORS["."]
 
 
-ROOT_DIR = Path(__file__).parent
+ASSETS_DIR = Path(__file__).resolve().parent / "assets"
 
-SYMBOL_ASCII = apply_colors(read_file(ROOT_DIR / "assets" / "symbol_ascii.txt")+'\n')
+SYMBOL_ASCII = apply_colors(read_file(ASSETS_DIR / "symbol_ascii.txt")+'\n')
 HELP_DOCUMENT = """
 Uso:
 python main.py [OPÇÕES]
