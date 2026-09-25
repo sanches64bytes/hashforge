@@ -59,6 +59,7 @@ class InvalidProvidedValueType(ScriptError):
             )
         )
 
+
 class ProvidedFileDoesNotExist(ScriptError):
     """The provided file was not found."""
 
