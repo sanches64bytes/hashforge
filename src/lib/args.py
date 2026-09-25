@@ -90,6 +90,7 @@ def _int(key: ValuesEnum, value: str | None) -> int | None:
         raise InvalidProvidedValueType(key, value, 'inteiro')
     return int(value)
 
+
 def read_args() -> ArgsDict:
     """
     Reads all arguments provided so that the system can operate.
