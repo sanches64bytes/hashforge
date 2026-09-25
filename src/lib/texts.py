@@ -2,9 +2,8 @@
 All the texts the project uses to interact with the user are here and must be stored here.
 """
 
-from lib.constants import DEFAULT_CHUNK_SIZE
+from lib.constants import DEFAULT_CHUNK_SIZE, ASSETS_DIR
 from lib.file import read_file
-from pathlib import Path
 
 
 COLORS = {
@@ -31,8 +30,6 @@ def apply_colors(value: str) -> str:
         value = value.replace(key, color)
     return value + COLORS["."]
 
-
-ASSETS_DIR = Path(__file__).resolve().parent / "assets"
 
 SYMBOL_ASCII = apply_colors(read_file(ASSETS_DIR / "symbol_ascii.txt")+'\n')
 HELP_DOCUMENT = """
